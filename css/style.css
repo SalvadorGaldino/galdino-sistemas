@@ -396,31 +396,70 @@ section { padding: var(--section-y) 0; }
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow-lg);
   animation: float-panel 7s ease-in-out infinite;
+  overflow: hidden;
 }
 .dash-mock .dash-topbar {
   display: flex;
   align-items: center;
   gap: 8px;
   margin-bottom: 18px;
+  min-width: 0;
 }
-.dash-mock .dash-topbar span { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,0.28); }
-.dash-mock .dash-topbar .dash-title {
-  margin-left: 8px;
+.dash-mock .dash-topbar-dots { display: flex; align-items: center; gap: 6px; flex: none; }
+.dash-mock .dash-topbar-dots span { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,0.28); }
+.dash-mock .dash-brand { display: flex; align-items: center; gap: 6px; min-width: 0; overflow: hidden; }
+.dash-mock .dash-brand img { width: 16px; height: 16px; object-fit: contain; flex: none; border-radius: 4px; }
+.dash-mock .dash-title {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   color: rgba(255,255,255,0.55);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
 }
+.dash-mock .dash-live {
+  margin-left: auto;
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  color: #7ce8b6;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+.dash-mock .dash-live-dot { width: 6px; height: 6px; border-radius: 50%; background: #4ade80; animation: live-pulse 1.8s ease-in-out infinite; }
+
 .dash-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
 .dash-kpi {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
   background: rgba(255,255,255,0.07);
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: var(--r-sm);
-  padding: 12px 14px;
+  padding: 12px 12px;
+  min-width: 0;
 }
-.dash-kpi .kpi-label { font-size: 0.68rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.05em; font-family: var(--font-mono); }
-.dash-kpi .kpi-value { font-family: var(--font-mono); font-size: 1.28rem; font-weight: 600; color: var(--white); margin-top: 6px; }
-.dash-kpi .kpi-trend { font-size: 0.72rem; color: #7ce8b6; margin-top: 3px; }
+.dash-kpi .kpi-icon {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(150deg, #a98bff, #6c3ce9);
+  color: var(--white);
+}
+.dash-kpi .kpi-icon .icon { width: 14px; height: 14px; }
+.dash-kpi .kpi-body { min-width: 0; }
+.dash-kpi .kpi-label { font-size: 0.66rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.05em; font-family: var(--font-mono); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dash-kpi .kpi-value { font-family: var(--font-mono); font-size: 1.2rem; font-weight: 600; color: var(--white); margin-top: 5px; white-space: nowrap; }
+.dash-kpi .kpi-trend { font-size: 0.72rem; color: #7ce8b6; margin-top: 3px; white-space: nowrap; }
 
 .dash-chart {
   background: rgba(255,255,255,0.06);
@@ -429,7 +468,7 @@ section { padding: var(--section-y) 0; }
   padding: 16px 16px 10px;
   margin-bottom: 14px;
 }
-.dash-chart .chart-label { font-family: var(--font-mono); font-size: 0.7rem; color: rgba(255,255,255,0.5); margin-bottom: 12px; }
+.dash-chart .chart-label { font-family: var(--font-mono); font-size: 0.7rem; color: rgba(255,255,255,0.5); margin-bottom: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .chart-bars { display: flex; align-items: flex-end; gap: 8px; height: 92px; }
 .chart-bars span {
   flex: 1;
@@ -451,6 +490,10 @@ section { padding: var(--section-y) 0; }
 }
 
 @keyframes grow-bar { to { transform: scaleY(1); } }
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74,222,128,0.5); }
+  50% { opacity: .6; box-shadow: 0 0 0 4px rgba(74,222,128,0); }
+}
 @keyframes float-panel {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
