@@ -9,6 +9,7 @@
   .container { padding: 0 26px; }
   .module-grid { grid-template-columns: repeat(3, 1fr); }
   .segment-grid { grid-template-columns: repeat(4, 1fr); }
+  .plans-grid { grid-template-columns: repeat(2, 1fr); }
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; }
   .footer-grid .footer-col:last-child { grid-column: 1 / -1; }
@@ -75,6 +76,8 @@
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
   .module-grid { grid-template-columns: repeat(3, 1fr); }
   .segment-grid { grid-template-columns: repeat(3, 1fr); }
+  .plans-grid { grid-template-columns: repeat(2, 1fr); }
+  .plans-note { flex-direction: column; }
 
   .timeline-track { grid-template-columns: repeat(5, 1fr); gap: 10px; }
   .timeline-track::before { left: 8%; right: 8%; }
@@ -114,6 +117,12 @@
   .module-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .segment-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .module-card, .segment-card { padding: 18px 14px; }
+
+  .plans-grid { grid-template-columns: 1fr; gap: 16px; }
+  .plan-card { padding: 26px 20px; }
+  .plan-price .price-value { font-size: 1.6rem; }
+  .plans-note { padding: 18px 20px; gap: 12px; }
+  .plans-note p { font-size: 0.88rem; }
 
   .timeline-track { grid-template-columns: 1fr; gap: 30px; }
   .timeline-track::before { top: 0; bottom: 0; left: 34px; right: auto; width: 2px; height: auto; background: repeating-linear-gradient(180deg, var(--purple-400) 0 8px, transparent 8px 16px); }

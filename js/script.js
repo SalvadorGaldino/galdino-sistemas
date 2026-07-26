@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFaq();
   initBackToTop();
   initFilters();
+  initPlanFilters();
   initForms();
   setActiveNavLink();
   document.getElementById('year') && (document.getElementById('year').textContent = new Date().getFullYear());
@@ -165,6 +166,26 @@ function initFilters() {
 
       cards.forEach(card => {
         const match = filter === 'todos' || card.dataset.segment === filter;
+        card.style.display = match ? '' : 'none';
+      });
+    });
+  });
+}
+
+/* Filtro de categorias de planos (página planos.html) */
+function initPlanFilters() {
+  const filterBtns = document.querySelectorAll('.plan-filter-row .filter-btn');
+  const cards = document.querySelectorAll('[data-plan-category]');
+  if (!filterBtns.length || !cards.length) return;
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      const filter = btn.dataset.filter;
+
+      cards.forEach(card => {
+        const match = filter === 'todos' || card.dataset.planCategory === filter;
         card.style.display = match ? '' : 'none';
       });
     });
