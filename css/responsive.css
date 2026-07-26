@@ -76,7 +76,7 @@
   .page-hero-grid { grid-template-columns: 1fr; }
   .page-hero { padding: 140px 0 64px; }
 
-  .content-block, .content-block.contato-grid { grid-template-columns: 1fr; }
+  .content-block, .content-block.contato-grid { grid-template-columns: 1fr !important; }
   .content-block.reverse .content-media { order: 0; }
   .content-media { max-height: 380px; }
 
