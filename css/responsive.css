@@ -73,6 +73,10 @@
   .content-block.reverse .content-media { order: 0; }
   .content-media { max-height: 380px; }
 
+  .showcase-grid { grid-template-columns: 1fr; gap: 32px; }
+  .showcase-tabs { gap: 8px; }
+  .showcase-tab { padding: 9px 14px; font-size: 0.8rem; }
+
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
   .module-grid { grid-template-columns: repeat(3, 1fr); }
   .segment-grid { grid-template-columns: repeat(3, 1fr); }
